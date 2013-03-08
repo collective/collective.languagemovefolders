@@ -10,4 +10,5 @@ dist/
 *.swp
 *.egg-info/
 .installed.cfg
+.mr.developer.cfg
 Paste*.egg/
