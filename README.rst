@@ -8,4 +8,4 @@ This products add a view to Move your content Into Language Folder, first, you h
 
 And after, call the view
 
-    @@move_content
+    @@move-content
