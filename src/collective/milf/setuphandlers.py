@@ -7,8 +7,9 @@ def setupVarious(context):
         return
 
     site = context.getSite()
+    env = os.environ.get('DEPLOY_ENV', None)
 
-    if os.environ['DEPLOY_ENV'] == 'dev':
+    if env == 'dev':
         folder1_fr = api.content.create(
                     type='Folder',
                     title=u'dossier1 fr',
