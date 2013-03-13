@@ -12,6 +12,7 @@ def move_all():
             results.append(u"{0} language doesn't exists, please call \
                 the LinguaPlone view: @@language-setup-folders".format(lang))
         else:
+            # XXX: copy portlets
             folder_language = getattr(portal, lang)
             objects = prepare_moving(portal, langs)
             for obj in objects[lang]:
@@ -22,6 +23,9 @@ def move_all():
 
 
 def prepare_moving(site, langs):
+    """ return a dict with languages as key (fr, en, nl, ...) and object,
+    in language of the key, which are in the root of the Plone site, as values.
+    """
     results = {}
     for lang in langs:
         results[lang] = []
