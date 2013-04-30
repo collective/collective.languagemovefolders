@@ -1,6 +1,5 @@
 import unittest2 as unittest
 from plone import api
-from Products.CMFCore.utils import getToolByName
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
@@ -50,10 +49,6 @@ class TestMove(unittest.TestCase):
         self.assertTrue(api.content.get(path='/docfr'))
 
     def test_movement(self):
-
         utils.move_all()
         self.assertTrue(api.content.get(path='/fr/docfr'))
         self.assertTrue(api.content.get(path='/docfr') is None)
-
-
-
