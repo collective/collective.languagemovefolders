@@ -9,7 +9,7 @@ def move_all():
     results = []
     for lang in langs:
         if not getattr(portal, lang, None):
-            results.append(u"{0} language doesn't exists, please call \
+            results.append(u"{0} language folder doesn't exists, please call \
                 the LinguaPlone view: @@language-setup-folders".format(lang))
         else:
             # XXX: copy portlets
@@ -17,7 +17,7 @@ def move_all():
             objects = prepare_moving(portal, langs)
             for obj in objects[lang]:
                 api.content.move(source=obj, target=folder_language)
-                results.append("{0} had moved".format(obj.getId()))
+                results.append("{0} was moved".format(obj.getId()))
 
     return "<br />".join(results)
 
