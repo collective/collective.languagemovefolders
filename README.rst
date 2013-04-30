@@ -1,3 +1,6 @@
+.. image:: https://api.travis-ci.org/cirb/collective.milf.png
+   :target: http://travis-ci.org/cirb/collective.milf
+
 .. contents::
 
 Introduction
