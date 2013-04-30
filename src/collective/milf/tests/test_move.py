@@ -49,6 +49,6 @@ class TestMove(unittest.TestCase):
         self.assertTrue(api.content.get(path='/docfr'))
 
     def test_movement(self):
-        utils.move_all()
+        results = utils.move_all()
         self.assertTrue(api.content.get(path='/fr/docfr'))
         self.assertTrue(api.content.get(path='/docfr') is None)
