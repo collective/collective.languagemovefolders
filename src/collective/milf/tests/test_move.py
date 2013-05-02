@@ -11,7 +11,9 @@ from collective.milf.testing import MILF_INTEGRATION
 def create(container, type, title, language):
     content_id = title
     container.invokeFactory(type, content_id, title=title, language=language)
-    return container[content_id]
+    content = container[content_id]
+    content.processForm()
+    return content
 
 
 class TestMove(unittest.TestCase):
