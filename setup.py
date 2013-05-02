@@ -42,7 +42,6 @@ setup(name='collective.milf',
           'setuptools',
           # -*- Extra requirements: -*-
           'Products.LinguaPlone',
-          'plone.api',
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
