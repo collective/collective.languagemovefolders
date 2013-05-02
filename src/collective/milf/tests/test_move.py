@@ -22,10 +22,9 @@ class TestMove(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
-        #self.portal.portal_languages.addSupportedLanguage('en')
-        #self.portal.portal_languages.addSupportedLanguage('fr')
-        #self.portal.portal_languages.addSupportedLanguage('nl')
-        #self.setRoles(['Manager'])
+        self.portal.portal_languages.addSupportedLanguage('en')
+        self.portal.portal_languages.addSupportedLanguage('fr')
+        self.portal.portal_languages.addSupportedLanguage('nl')
         setRoles(self.portal, TEST_USER_ID, ['Manager', 'Owner'])
         fr = create(type='Folder',
                 title='fr',
