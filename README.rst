@@ -1,4 +1,4 @@
-.. image:: https://api.travis-ci.org/cirb/collective.milf.png
+.. image:: https://travis-ci.org/CIRB/collective.milf.png?branch=master
    :target: http://travis-ci.org/cirb/collective.milf
 
 .. contents::

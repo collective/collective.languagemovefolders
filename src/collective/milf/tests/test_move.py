@@ -8,10 +8,7 @@ from collective.milf import utils
 from collective.milf.testing import MILF_INTEGRATION
 
 
-def create(container=None,
-        type=None,
-        title=None,
-        language='en'):
+def create(container, type, title, language):
     content_id = title
     container.invokeFactory(type, content_id, title=title, language=language)
     return container[content_id]
@@ -23,8 +20,11 @@ class TestMove(unittest.TestCase):
 
     def setUp(self):
         self.portal = self.layer['portal']
+        #self.portal.portal_languages.addSupportedLanguage('en')
+        #self.portal.portal_languages.addSupportedLanguage('fr')
+        #self.portal.portal_languages.addSupportedLanguage('nl')
         #self.setRoles(['Manager'])
-        setRoles(self.portal, TEST_USER_ID, ['Manager', 'Member'])
+        setRoles(self.portal, TEST_USER_ID, ['Manager', 'Owner'])
         fr = create(type='Folder',
                 title='fr',
                 language='fr',
@@ -53,7 +53,6 @@ class TestMove(unittest.TestCase):
         self.assertTrue(getattr(self.portal, 'docfr'))
 
     def test_movement(self):
-        setRoles(self.portal, TEST_USER_ID, ['Manager', 'Member'])
         results = utils.move_all(self.portal)
         self.assertTrue(getattr(self.portal, 'fr'))
         self.assertEqual(getattr(self.portal, 'docfr', None), None)
