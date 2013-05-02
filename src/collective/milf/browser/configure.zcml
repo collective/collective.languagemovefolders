@@ -6,7 +6,7 @@
 
   <browser:page
       for="*"
-      name="move-content"
+      name="milf"
       class=".movecontentview.MoveContentView"
       template="movecontentview.pt"
       allowed_interface=".movecontentview.IMoveContentView"
