@@ -2,13 +2,12 @@ import unittest2 as unittest
 
 from Products.CMFCore.utils import getToolByName
 
-from collective.milf.testing import \
-    COLLECTIVE_MILF_INTEGRATION_TESTING
+from collective.milf.testing import MILF_INTEGRATION
 
 
-class TestExample(unittest.TestCase):
+class TestSetup(unittest.TestCase):
 
-    layer = COLLECTIVE_MILF_INTEGRATION_TESTING
+    layer = MILF_INTEGRATION
 
     def setUp(self):
         self.app = self.layer['app']

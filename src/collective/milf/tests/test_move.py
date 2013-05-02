@@ -1,13 +1,11 @@
 import unittest2 as unittest
-from plone import api
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 
 from collective.milf import utils
 
-from collective.milf.testing import \
-    COLLECTIVE_MILF_INTEGRATION_TESTING
+from collective.milf.testing import MILF_INTEGRATION
 
 
 def create(container=None,
@@ -19,13 +17,14 @@ def create(container=None,
     return container[content_id]
 
 
-def TestMove(unittest.TestCase):
+class TestMove(unittest.TestCase):
 
-    layer = COLLECTIVE_MILF_INTEGRATION_TESTING
+    layer = MILF_INTEGRATION
 
     def setUp(self):
         self.portal = self.layer['portal']
-        setRoles(self.portal, TEST_USER_ID, ('Manager',))
+        #self.setRoles(['Manager'])
+        setRoles(self.portal, TEST_USER_ID, ['Manager', 'Member'])
         fr = create(type='Folder',
                 title='fr',
                 language='fr',
@@ -51,9 +50,10 @@ def TestMove(unittest.TestCase):
         docen.addTranslationReference(docfr)
 
     def test_no_movement(self):
-        self.assertTrue(api.content.get(path='/docfr'))
+        self.assertTrue(getattr(self.portal, 'docfr'))
 
     def test_movement(self):
+        setRoles(self.portal, TEST_USER_ID, ['Manager', 'Member'])
         results = utils.move_all(self.portal)
-        self.assertTrue(api.content.get(path='/fr/docfr'))
-        self.assertTrue(api.content.get(path='/docfr') is None)
+        self.assertTrue(getattr(self.portal, 'fr'))
+        self.assertEqual(getattr(self.portal, 'docfr', None), None)
