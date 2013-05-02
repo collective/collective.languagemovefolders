@@ -1,5 +1,5 @@
 .. image:: https://travis-ci.org/CIRB/collective.milf.png?branch=master
-   :target: http://travis-ci.org/cirb/collective.milf
+   :target: http://travis-ci.org/CIRB/collective.milf
 
 .. contents::
 
