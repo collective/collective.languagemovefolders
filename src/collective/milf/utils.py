@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from plone import api
 
 
-def move_all():
-    portal = api.portal.get()
+def move_all(portal):
+    # portal = api.portal.get()
     portal_languages = portal.portal_languages
     langs = portal_languages.getAvailableLanguages()
     results = []
@@ -16,7 +15,9 @@ def move_all():
             folder_language = getattr(portal, lang)
             objects = prepare_moving(portal, langs)
             for obj in objects[lang]:
-                api.content.move(source=obj, target=folder_language)
+                folder_language.manage_pasteObjects(
+                                 obj.aq_parent.manage_cutObjects(obj.getId()))
+                #api.content.move(source=obj, target=folder_language)
                 results.append("{0} was moved".format(obj.getId()))
 
     return "<br />".join(results)

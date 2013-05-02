@@ -10,37 +10,42 @@ from collective.milf.testing import \
     COLLECTIVE_MILF_INTEGRATION_TESTING
 
 
-class TestMove(unittest.TestCase):
+def create(container=None,
+        type=None,
+        title=None,
+        language='en'):
+    content_id = title
+    container.invokeFactory(type, content_id, title=title, language=language)
+    return container[content_id]
+
+
+def TestMove(unittest.TestCase):
 
     layer = COLLECTIVE_MILF_INTEGRATION_TESTING
 
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ('Manager',))
-        fr = api.content.create(type='Folder',
+        fr = create(type='Folder',
                 title='fr',
-                id='fr',
                 language='fr',
                 container=self.portal)
 
-        en = api.content.create(type='Folder',
+        en = create(type='Folder',
                 title='en',
-                id='en',
                 language='en',
                 container=self.portal)
         en.addTranslationReference(fr)
 
-        docfr = api.content.create(
+        docfr = create(
                 type='Document',
                 title='docfr',
-                id='docfr',
                 language='fr',
                 container=self.portal)
 
-        docen = api.content.create(
+        docen = create(
                 type='Document',
                 title='docen',
-                id='docen',
                 language='en',
                 container=self.portal)
         docen.addTranslationReference(docfr)
@@ -49,6 +54,6 @@ class TestMove(unittest.TestCase):
         self.assertTrue(api.content.get(path='/docfr'))
 
     def test_movement(self):
-        results = utils.move_all()
+        results = utils.move_all(self.portal)
         self.assertTrue(api.content.get(path='/fr/docfr'))
         self.assertTrue(api.content.get(path='/docfr') is None)

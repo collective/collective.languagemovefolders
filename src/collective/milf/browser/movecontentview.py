@@ -33,5 +33,5 @@ class MoveContentView(BrowserView):
         return getToolByName(self.context, 'portal_url').getPortalObject()
 
     def move_content(self):
-        #site = self.portal
-        return utils.move_all()
+        portal = self.portal
+        return utils.move_all(portal)
