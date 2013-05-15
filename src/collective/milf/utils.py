@@ -2,6 +2,10 @@
 from AccessControl import getSecurityManager
 from AccessControl import Unauthorized
 from Products.CMFCore.permissions import ModifyPortalContent
+import logging
+
+
+logger = logging.getLogger('collective.milf')
 
 
 def move_all(portal):
@@ -16,8 +20,12 @@ def move_all(portal):
     results = []
     for lang in langs:
         if not getattr(portal, lang, None):
-            results.append(u"{0} language folder doesn't exists, please call \
-                the LinguaPlone view: @@language-setup-folders".format(lang))
+            message = u"{0} language folder doesn't exists,<br> please call \
+                the LinguaPlone view: <a href='{1}/@@language-setup-folders'>\
+                    @@language-setup-folders</a>".format(
+                        lang, portal.absolute_url())
+            logger.info(message)
+            return message
         else:
             # XXX: copy portlets
             folder_language = getattr(portal, lang)
@@ -25,7 +33,9 @@ def move_all(portal):
             for obj in objects[lang]:
                 folder_language.manage_pasteObjects(
                                obj.aq_parent.manage_cutObjects(obj.getId()))
-                results.append("{0} was moved".format(obj.getId()))
+                message = "{0}: {1} was moved".format(lang, obj.getId())
+                logger.info(message)
+                results.append(message)
 
     return "<br />".join(results)
 
@@ -39,6 +49,10 @@ def prepare_moving(site, langs):
         objects[lang] = []
     root_objects = site.contentValues()
     for root_object in root_objects:
-        if root_object.id not in langs:
-            objects[root_object.getLanguage()].append(root_object)
+        if root_object.id not in langs.keys():
+            if root_object.getLanguage():
+                objects[root_object.getLanguage()].append(root_object)
+            else:
+                logger.warn("Object {0} has no language".format(
+                    root_object.id))
     return objects
