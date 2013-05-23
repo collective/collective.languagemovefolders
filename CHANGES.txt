@@ -4,13 +4,7 @@ Changelog
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
-
-1.0.0 (2013-05-15)
-------------------
-
-- Nothing changed yet.
+- Fix bug when object has another language than languages of Plone site.
 
 
 1.0.0 (2013-05-15)
