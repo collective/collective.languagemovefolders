@@ -1,14 +1,9 @@
-.. image:: https://travis-ci.org/collective/collective.milf.png?branch=master
-   :target: http://travis-ci.org/collective/collective.milf
+collective.milf
+===============
 
-.. contents::
+Due to multiple complaints that have gone unanswered, this package is pending
+deletion from the collective. If you are the owner please restore the branch
+`old-master` with a different name, or remove this package from the
+collective.* namespace.
 
-Introduction
-============
-This products add a view to Move your content Into Language Folder, first, you have to create this language folders with the LinguaPlone view
-
-    @@language-setup-folders
-
-And after, call the view
-
-    @@milf
+For users, you may find the current master branch as `old-master`.
