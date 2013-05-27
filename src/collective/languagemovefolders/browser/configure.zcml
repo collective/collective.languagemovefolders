@@ -6,7 +6,7 @@
 
   <browser:page
       for="*"
-      name="languagemovefolders"
+      name="language-move-folders"
       class=".movecontentview.MoveContentView"
       template="movecontentview.pt"
       allowed_interface=".movecontentview.IMoveContentView"
