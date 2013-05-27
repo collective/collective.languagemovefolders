@@ -1,5 +1,5 @@
-.. image:: https://travis-ci.org/collective/collective.milf.png?branch=master
-   :target: http://travis-ci.org/collective/collective.milf
+.. image:: https://travis-ci.org/collective/collective.languagemovefolders.png?branch=master
+   :target: http://travis-ci.org/collective/collective.languagemovefolders
 
 .. contents::
 
