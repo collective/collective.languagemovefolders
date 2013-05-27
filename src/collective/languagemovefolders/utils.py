@@ -20,7 +20,6 @@ def move_all(portal):
     results = []
     for lang in langs:
         if not getattr(portal, lang, None):
-            import pdb; pdb.set_trace()
             message = u"{0} language folder doesn't exists,<br> please call \
                 the LinguaPlone view: <a href='{1}/@@language-setup-folders'>\
                     @@language-setup-folders</a>".format(
