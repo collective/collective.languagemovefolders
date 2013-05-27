@@ -4,8 +4,8 @@ from zope.interface import implements, Interface
 from Products.Five import BrowserView
 from Products.CMFCore.utils import getToolByName
 
-from collective.milf import milfMessageFactory as _
-from collective.milf import utils
+from collective.languagemovefolders import languagemovefoldersMessageFactory as _
+from collective.languagemovefolders import utils
 
 
 class IMoveContentView(Interface):

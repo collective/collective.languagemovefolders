@@ -3,9 +3,9 @@ import unittest2 as unittest
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
 
-from collective.milf import utils
+from collective.languagemovefolders import utils
 
-from collective.milf.testing import MILF_INTEGRATION
+from collective.languagemovefolders.testing import languagemovefolders_INTEGRATION
 
 
 def create(container, type, title, language):
@@ -18,7 +18,7 @@ def create(container, type, title, language):
 
 class TestMove(unittest.TestCase):
 
-    layer = MILF_INTEGRATION
+    layer = languagemovefolders_INTEGRATION
 
     def setUp(self):
         self.portal = self.layer['portal']

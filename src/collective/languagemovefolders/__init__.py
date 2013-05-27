@@ -1,7 +1,7 @@
 # -*- extra stuff goes here -*-
 from zope.i18nmessageid import MessageFactory
 
-milfMessageFactory = MessageFactory('collective.milf')
+languagemovefoldersMessageFactory = MessageFactory('collective.languagemovefolders')
 
 
 def initialize(context):

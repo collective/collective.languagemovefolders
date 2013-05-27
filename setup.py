@@ -10,7 +10,7 @@ long_description = (
     open('CHANGES.txt').read()
     + '\n')
 
-setup(name='collective.milf',
+setup(name='collective.languagemovefolders',
       version=version,
       description="Move Into Language Folder",
       long_description=long_description,

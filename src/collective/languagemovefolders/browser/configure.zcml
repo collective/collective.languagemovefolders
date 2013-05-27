@@ -1,12 +1,12 @@
 <configure 
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="cirb.milf">
+    i18n_domain="collective.languagemovefolders">
     <!-- -*- extra stuff goes here -*- -->
 
   <browser:page
       for="*"
-      name="milf"
+      name="languagemovefolders"
       class=".movecontentview.MoveContentView"
       template="movecontentview.pt"
       allowed_interface=".movecontentview.IMoveContentView"

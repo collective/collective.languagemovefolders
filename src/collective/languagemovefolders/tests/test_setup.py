@@ -2,12 +2,12 @@ import unittest2 as unittest
 
 from Products.CMFCore.utils import getToolByName
 
-from collective.milf.testing import MILF_INTEGRATION
+from collective.languagemovefolders.testing import languagemovefolders_INTEGRATION
 
 
 class TestSetup(unittest.TestCase):
 
-    layer = MILF_INTEGRATION
+    layer = languagemovefolders_INTEGRATION
 
     def setUp(self):
         self.app = self.layer['app']
@@ -18,7 +18,7 @@ class TestSetup(unittest.TestCase):
         """ Validate that our products GS profile has been run and the product
             installed
         """
-        pid = 'collective.milf'
+        pid = 'collective.languagemovefolders'
         installed = [p['id'] for p in self.qi_tool.listInstalledProducts()]
         self.assertTrue(pid in installed,
                         'package appears not to have been installed')

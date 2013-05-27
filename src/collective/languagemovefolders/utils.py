@@ -5,7 +5,7 @@ from Products.CMFCore.permissions import ModifyPortalContent
 import logging
 
 
-logger = logging.getLogger('collective.milf')
+logger = logging.getLogger('collective.languagemovefolders')
 
 
 def move_all(portal):
