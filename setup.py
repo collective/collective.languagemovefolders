@@ -31,7 +31,7 @@ setup(name='collective.languagemovefolders',
       keywords='',
       author='Benoit Suttor',
       author_email='bsuttor@cirb.irisnet.be',
-      url='https://github.com/collective/collective.milf',
+      url='https://github.com/collective/collective.languagemovefolders',
       license='gpl',
       packages=find_packages('src'),
       package_dir={'': 'src'},
@@ -49,6 +49,4 @@ setup(name='collective.languagemovefolders',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      #setup_requires=["PasteScript"],
-      #paster_plugins=["templer.localcommands"],
       )
